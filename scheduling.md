@@ -1,0 +1,3 @@
+# Scheduling
+
+- manual scheduling: `nodeName`
