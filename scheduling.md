@@ -1,3 +1,3 @@
 # Scheduling
 
-- manual scheduling: `nodeName`
+- manual scheduling: `nodeName` # lab scenario, no kube scheduler present
