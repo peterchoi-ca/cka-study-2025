@@ -1,0 +1,14 @@
+# etcd operations
+
+- search for etcd backups in docs
+- /etc/kubernetes/pki/etcd/ca.crt, server.crt, server.key
+- to restore, use the etcdctl command, then update the etcd pod at /etc/kubernetes/manifests/etcd.yaml, this part. this will recreate the etcd pod, `crictl ps` to monitor status.
+
+```
+  ...
+  volumes:
+  - hostPath:
+      path: /var/lib/etcd-from-backup # Newly restored backup directory
+      type: DirectoryOrCreate
+    name: etcd-data
+```
