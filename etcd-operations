@@ -12,3 +12,5 @@
       type: DirectoryOrCreate
     name: etcd-data
 ```
+
+- Troubleshooting: `crictl ps -a`, `crictl logs <container id>`
