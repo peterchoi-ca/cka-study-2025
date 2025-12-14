@@ -34,6 +34,36 @@ helm template argocd argo/argo-cd --version <version> --skip-crds --output-dir .
 helm install argocd argo/argo-cd --version <version> --skip-crds
 ```
 
+### Command Syntax Breakdown
+
+```
+helm install <release-name> <repo-name>/<chart-name>
+```
+
+| Component | Example | Description |
+|-----------|---------|-------------|
+| Release name | `argocd` | Your chosen name for this installation |
+| Repo name | `argo` | From `helm repo add argo https://...` |
+| Chart name | `argo-cd` | The chart within that repo |
+
+Multiple releases from the same chart are possible by changing the release name:
+
+```bash
+helm install argocd-dev argo/argo-cd
+helm install argocd-prod argo/argo-cd
+```
+
+### What Helm Can Install
+
+Helm can only install *charts*, not rendered YAML files:
+
+| Source | Install Command |
+|--------|-----------------|
+| Chart from repo | `helm install argocd argo/argo-cd` |
+| Local chart directory | `helm install argocd ./argo-cd` |
+| Packaged chart (.tgz) | `helm install argocd argo-cd-1.0.0.tgz` |
+| Rendered YAML file | `kubectl apply -f argocd.yaml` (not Helm) |
+
 ## Key Flags
 
 | Flag | Purpose |
